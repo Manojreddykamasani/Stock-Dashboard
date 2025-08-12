@@ -1,0 +1,18 @@
+# dependencies
+/node_modules
+
+# environment variables
+.env
+.env.local
+
+# sqlite database
+/stock_data.db
+
+# logs
+npm-debug.log*
+.npm/
+.yarn-cache/
+
+# misc
+.DS_Store
+.vscode

@@ -130,7 +130,7 @@ const StockChart = ({ symbol }) => {
         {error && <p className="text-center my-8 text-red-500">Error: {error}</p>}
         {!loading && !error && stockData.length > 0 && (
           <>
-            <div className="mb-6 grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
+            <div className="mb-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 text-center">
               <div className="bg-gray-700 p-4 rounded-lg shadow-md border border-gray-600">
                 <p className="text-sm font-semibold text-gray-400">52-Week High</p>
                 <p className="text-xl font-bold text-green-400 mt-1">
@@ -150,7 +150,7 @@ const StockChart = ({ symbol }) => {
                 </p>
               </div>
             </div>
-            <div className="flex-1 min-h-0 relative">
+            <div className="flex-1 min-h-[400px] md:min-h-0 relative">
               <Line data={chartData} options={options} />
             </div>
           </>

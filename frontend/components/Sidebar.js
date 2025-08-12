@@ -21,16 +21,16 @@ const Sidebar = ({ onSelectSymbol, selectedSymbol }) => {
   }, []);
 
   return (
-    <nav className="w-64 flex-shrink-0 bg-gray-800 p-4 overflow-y-auto shadow-xl border-r border-gray-700">
-      <h2 className="text-lg font-semibold mb-4 border-b pb-2 border-gray-700 text-gray-100">Companies</h2>
-      <ul>
+    <nav className="w-full md:w-64 flex-shrink-0 bg-gray-800 p-4 md:overflow-y-auto overflow-x-auto shadow-xl border-b md:border-r border-gray-700">
+      <h2 className="text-lg font-semibold mb-4 border-b pb-2 border-gray-700 text-gray-100 hidden md:block">Companies</h2>
+      <ul className="flex md:flex-col space-x-2 md:space-x-0 md:space-y-2">
         {loading ? (
           <p className="text-gray-400">Loading...</p>
         ) : (
           companies.map((company) => (
             <li
               key={company.symbol}
-              className={`p-3 my-2 rounded-lg cursor-pointer transition-colors duration-200 ${
+              className={`p-3 rounded-lg cursor-pointer transition-colors duration-200 text-sm md:text-base whitespace-nowrap ${
                 selectedSymbol === company.symbol
                   ? 'bg-blue-600 text-white shadow-md'
                   : 'hover:bg-gray-700'

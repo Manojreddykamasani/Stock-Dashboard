@@ -1,7 +1,8 @@
-const express = require('express');
+\const express = require('express');
 const cors = require('cors');
 const cron = require('node-cron');
 const path = require('path');
+const fs = require('fs');
 const stockRoutes = require('./routes/stockRoutes');
 const { refreshAllStocks, setupDatabase } = require('./services/dataService');
 require('dotenv').config();
@@ -16,6 +17,11 @@ app.use('/api', stockRoutes);
 const dbPath = process.env.NODE_ENV === 'production'
   ? path.resolve('/var/data/stock_data.db')
   : path.resolve(__dirname, 'stock_data.db');
+
+const dbDir = path.dirname(dbPath);
+if (!fs.existsSync(dbDir)) {
+  fs.mkdirSync(dbDir, { recursive: true });
+}
 
 const db = new (require('better-sqlite3'))(dbPath);
 setupDatabase(db);

@@ -15,7 +15,7 @@ app.use(express.json());
 app.use('/api', stockRoutes);
 
 const dbPath = process.env.NODE_ENV === 'production'
-  ? path.resolve('/var/data/stock_data.db')
+  ? path.join(__dirname, 'stock_data.db')
   : path.resolve(__dirname, 'stock_data.db');
 
 const dbDir = path.dirname(dbPath);
